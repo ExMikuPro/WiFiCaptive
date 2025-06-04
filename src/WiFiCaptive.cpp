@@ -93,6 +93,13 @@ String WiFiCaptive::generateWiFiOptions() {
 
 String WiFiCaptive::generateConfigPage() {
   String options = generateWiFiOptions();
+
+  if (customHtml.length()) {
+    String result = customHtml;
+    result.replace("{options}", options);
+    return result;
+  }
+
   return
       "<!DOCTYPE html><html lang='zh-CN'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'>"
       "<title>WiFi 配网</title><style>body{display:flex;justify-content:center;align-items:center;flex-direction:column;min-height:100vh;margin:0;font-family:sans-serif;background-color:#f4f4f4}.container{background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.1);width:90%;max-width:400px;text-align:center}select,input[type='text'],input[type='password'],input[type='submit']{width:100%;padding:10px;margin-top:10px;border-radius:6px;border:1px solid #ccc;box-sizing:border-box;font-size:16px;outline:none;transition:border-color 0.3s,box-shadow 0.3s}input[type='password']:focus,input[type='text']:focus,select:focus{border-color:#4CAF50;box-shadow:0 0 4px rgba(76,175,80,0.5)}input[type='submit']{background-color:#4CAF50;color:white;border:none;cursor:pointer}input[type='submit']:hover{background-color:#45a049}</style></head><body><div class='container'><h2>WiFi 配置</h2><form method='POST' action='/connect'><select onchange=\"document.getElementById('ssidInput').value=this.value\">" +
