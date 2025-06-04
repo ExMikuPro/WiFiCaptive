@@ -3,7 +3,7 @@
   功能：通过串口输入命令 "clear" 清除 EEPROM 中保存的 WiFi 配置数据，用于恢复出厂状态。
 */
 
-#include <WiFiCaptive.h>
+#include "WiFiCaptive.h"
 WiFiCaptive captive;
 
 void setup() {

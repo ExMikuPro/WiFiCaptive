@@ -4,7 +4,7 @@
         并提供网页供用户配置 WiFi。
 */
 
-#include <WiFiCaptive.h>
+#include "WiFiCaptive.h"
 WiFiCaptive captive;
 
 void setup() {

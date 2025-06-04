@@ -3,7 +3,7 @@
   功能：设置带有占位符 {options} 的自定义 HTML 页面，替代默认配网页面。
 */
 
-#include <WiFiCaptive.h>
+#include "WiFiCaptive.h"
 WiFiCaptive captive;
 
 void setup() {
